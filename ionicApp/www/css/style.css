@@ -1,0 +1,8 @@
+/* Empty. Add your own CSS if you like */
+.waypoint{
+  width:30px;
+  height:30px;
+  border: 1px solid yellow;
+  background-color: red;
+  border-radius: 10px;
+}

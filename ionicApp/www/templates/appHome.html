@@ -1,0 +1,22 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <h2>{{header}}</h2>
+    <div class="card">
+      <div class="item item-divider">
+        Smuggler's den
+      </div>
+      <div class="item item-text-wrap">
+          <div ng-repeat="smugler in smuglers" style="margin:4px;float:left;" class="list list-inset">
+            <!--<a class="button" href="/#/app/road/{{smugler.id}}"> {{road.fields.name}} </a>-->
+              <button class="button button-medium" ng-click="getDetails(smugler)">
+                  <b>{{smugler.name}}   {{smugler.lastname}}</b>
+              </button>
+          </div>
+          <div style="width:100%; !important">
+              <span > Click their names to know more about them</span>
+          </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
