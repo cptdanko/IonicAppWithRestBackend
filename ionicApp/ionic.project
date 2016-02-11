@@ -1,6 +1,6 @@
 {
-  "name": "ionicApp",
-  "app_id": "",
+  "name": "proxy-example",
+  "app_id": "myIonicApp",
   "proxies": [
     {
         "path":"/api/",

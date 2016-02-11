@@ -1,19 +1,11 @@
-var module = angular.module('healthNWellness.controllers');
+var module = angular.module('myIonicApp.controllers');
 
-module.controller('HomeCtrl',function($scope,$http,$ionicPopup){
+module.controller('HomeCtrl',function($scope,$http,$ionicPopup,ApiEndpoint){
     $scope.header = "Welcome to the galaxy's finest smugglers";
-    $scope.state = {};
-    $scope.state.nogLoggedIn = false;
-    if(localStorage["username"] == undefined ||
-    localStorage["username"] == null){
-        $scope.state.nogLoggedIn = true;
-    }
-    //DEBUG CODE: PLEASE REMOVE FROM PROD
     $scope.smuglers = [];
-    $scope.state.showRoads = true;
     $http({
       method: 'GET',
-      url: '/api/smugglers/',
+      url: ApiEndpoint.url+ 'smugglers/',
     }).then(function successCallback(response) {
         $scope.smuglers = [];
         for(var r in response.data) {
@@ -24,9 +16,8 @@ module.controller('HomeCtrl',function($scope,$http,$ionicPopup){
     }, function errorCallback(response) {
         console.log("ERROR");
     });
-
     $scope.getDetails = function(smugler){
-        var url = '/api/smuggler/'+smugler.id+'/';
+        var url = ApiEndpoint.url + smugler.id+'/';
         $http.get(url).then(function successCallback(response){
             var alertPopup = $ionicPopup.alert({
               title: 'More details',
